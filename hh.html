@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTAP 4 JS</title>
+</head>
+<body>
+    <p align="center"><b><font face="Time New Roman" size="6" color="black">Thông tin đăng kí</font></b></p>
+
+    <form action="" method="post" name="frmBT4" onsubmit="return nhaplieu();">
+
+        Họ và tên: <input type="text" size="30" name="txtTen" placeholder="Hãy Nhập Họ Tên Của Bạn" onblur="kiemTraTen()"/>
+        <br><br>
+
+        Tên đăng nhập: <input type="text" size="30" name="txtTendn" placeholder="Tên đăng nhập" onblur="kiemTraTenDangNhap()"/>
+        <br><br>
+
+        Mật khẩu: <input type="password" size="30" name="mkhau" placeholder="Nhập mật khẩu" onblur="kiemTraMatKhau()"/>
+        <br><br>
+
+        Quê quán: &nbsp; &nbsp; &nbsp; <select name="quequan">
+            <option value="HN" selected="selected">HÀ NỘI</option>
+            <option value="TP">HỒ CHÍ MINH</option>
+            <option value="CT">CẦN THƠ</option>
+        </select>
+        <br>
+
+        <input type="submit" name="dongy" value="Đồng ý"/>
+
+    </form>
+
+    <p align="center"><b><font face="Time New Roman" size="5" color="pink">Thông tin bạn vừa nhập</font></b></p>
+
+    <table border="1" align="center" id="tblUserInfo">
+        <tr>
+            <th>Họ tên</th>
+            <th>Tên đăng nhập</th>
+            <th>Mật khẩu</th>
+            <th>Quê quán</th>
+        </tr>
+    </table>
+
+    <script>
+        let users = []; // Mảng lưu thông tin người dùng
+
+        function kiemTraTen() {
+            let ten = document.frmBT4.txtTen.value;
+            if (ten === "") {
+                alert("Bạn chưa nhập họ tên!");
+                return false;
+            }
+            return true;
+        }
+
+        function kiemTraTenDangNhap() {
+            let tenDangNhap = document.frmBT4.txtTendn.value;
+            if (tenDangNhap === "") {
+                alert("Bạn chưa nhập tên đăng nhập!");
+                return false;
+            } else if (tenDangNhap.length < 8) {
+                alert("Tên đăng nhập phải có ít nhất 8 ký tự!");
+                return false;
+            }
+            return true;
+        }
+
+        function kiemTraMatKhau() {
+            let matKhau = document.frmBT4.mkhau.value;
+            if (matKhau === "") {
+                alert("Bạn chưa nhập mật khẩu!");
+                return false;
+            } else if (matKhau.length < 8) {
+                alert("Mật khẩu phải có ít nhất 8 ký tự!");
+                return false;
+            }
+            return true;
+        }
+
+        function nhaplieu() {
+            event.preventDefault(); // Prevent default form submission
+            if (!kiemTraTen() || !kiemTraTenDangNhap() || !kiemTraMatKhau()) {
+                return false;
+            }
+
+            let hoten = document.frmBT4.txtTen.value;
+            let hotendn = document.frmBT4.txtTendn.value;
+            let mk = document.frmBT4.mkhau.value;
+            let quequan = document.frmBT4.quequan.value;
+
+            // Thêm thông tin người dùng vào mảng
+            users.push({hoTen: hoten, tenDangNhap: hotendn, matKhau: mk, queQuan: quequan});
+
+            // Hiển thị thông tin người dùng trong bảng
+            hienthiThongTin();
+
+            alert("Chào bạn " + hoten + ". Bạn đã đăng ký thành công!");
+
+            return true;
+        }
+
+        function hienthiThongTin() {
+            let table = document.getElementById("tblUserInfo");
+            let lastRow = table.rows.length;
+            let newRow = table.insertRow(lastRow);
+
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            let cell3 = newRow.insertCell(2);
+            let cell4 = newRow.insertCell(3);
+
+            cell1.innerHTML = users[users.length - 1].hoTen;
+            cell2.innerHTML = users[users.length - 1].tenDangNhap;
+            cell3.innerHTML = users[users.length - 1].matKhau;
+            cell4.innerHTML = users[users.length - 1].queQuan;
+        }
+    </script>
+</body>
+</html>
