@@ -1,0 +1,46 @@
+@charset "utf-8";
+*{
+	margin:0 px;
+	padding:0 px;
+}
+div#container{
+	border:2px dotted#09F;
+	background-color:#CFF;
+	height:970px;
+	width:auto;
+}
+div#top{
+	border:1px dotted#F00;
+	background-image:url(images/hinh-ve-cute-49.jpg);
+	width:1325px;
+}
+div#left{
+	border:2px dotted#F00;
+	float:left;
+	background-image:url(images/images.jpg);
+	width:350px;
+	height:800px;
+	padding:10px;
+}
+div#center{
+	border:2px dotted#F00;
+	float:left;
+	background-image:url(images/hinh-nen-powerpoint-dep-9.jpg);
+	width:557px;
+	height:800px;
+	padding:10px;
+}
+div#right{
+	border:2px dotted#F00;
+	float:left;
+	background-image:url(images/background-de-thuong_043215115.jpg);
+	width:350px;
+	height:800px;
+	padding:10px;
+}
+div#button{
+	border:2px dotted#F00;
+	background-color:#06C;
+	width:1315px;
+	padding:5px;
+}
