@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" src="KTL2-5-HuynhKhanhDuy.js"></script>
+<title>110122059 - Huỳnh Khánh Duy</title>
+</head>
+
+<body>
+<form name="frmNhapDiem_059" action="" method="post">
+<table border="1" width="50%" align="center" bgcolor="#CCCCCC" cellpadding="10" cellspacing="0" bordercolor="#0000FF">
+<caption><h1 style="color:#0000FF;"> Nhập điểm kết thúc môn </h1></caption>
+<tr><td >
+Nhập MSSV:</td>
+<td width="69%" > <input type="text" name="txtMSSV_059" size="20" maxlength="9"/></td>
+</tr><tr><td>
+Nhập họ tên SV: </td><td><input type="text" name="txtHTen_059" size="20"  /></td></tr>
+<tr><td colspan="2">
+<fieldset>
+	<legend>Nhập điểm môn</legend>
+	<table>
+		<tr>
+			<td>Toán rời rạc: </td>
+            <td><input type="text" name="txtTRRac_059" /></td>
+            <td>Số tín chỉ: <select name="slTRRac_059">
+            		<option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+            	</select>
+            </td>
+		</tr>
+		<tr>
+			<td>Thiết kế Web:</td>
+            <td><input type="text" name="txtTKWeb_059" /></td>
+            <td>Số tín chỉ: <select name="slTKWeb_059">
+            		<option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+            	</select>
+            </td>
+		</tr>
+		<tr>
+			<td>Đồ án Cơ sở ngành: </td>
+            <td><input type="text" name="txtDACSN_059" /></td>
+            <td>Số tín chỉ: <select name="slDACSN_059">
+            		<option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+            	</select>
+            </td>
+		</tr>
+	</table>
+</fieldset> 
+</td></tr>
+<tr>
+<td align="right"><input type="button" name="btnNhap_059" value="Nhập điểm" onclick="nhapdiem_059();"/></td>
+<td align="left"><input type="reset" name="rsNLai_059" value="Nhập lại" /></td>
+</tr>
+</table></form>
+<br />
+<table border="1" width="80%" align="center"  cellpadding="5" cellspacing="0" bordercolor="#0000FF">
+<tr bgcolor="#CCCCCC" height="50" align="center">
+<td width="76" rowspan="2">MSSV</td>
+<td width="111" rowspan="2">Họ tên SV</td>
+<td colspan="3">Điểm môn</td>
+<td width="74" rowspan="2">Điểm TB</td>
+</tr>
+<tr bgcolor="#CCCCCC" align="center">
+<td  valign="middle" width="80">Toán rời rạc</td>
+<td  valign="middle" width="80">Thiết kế Web</td>
+<td  valign="middle" width="80">Đồ án Cơ sở ngành</td>
+</tr>
+<tr>
+	<td id="mssv">&nbsp;</td>
+    <td id="ht">&nbsp;</td>
+    <td id="dtrr">&nbsp;</td>
+    <td id="dtkw">&nbsp;</td>
+    <td id="ddacsn">&nbsp;</td>
+    <td id="dtb">&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>
