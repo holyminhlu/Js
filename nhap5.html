@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTAP 8 JS</title>
+</head>
+<body>
+    <p align="center"><b><font face="Time New Roman" size="6" color="black">Thông tin đăng kí</font></b></p>
+<table border="0" width="100%" height="100%">
+<tr>
+	<td align="center" valign="middle">
+    <form action="" method="post" name="frmBT8" onsubmit="return nhaplieu();">
+<table border="0" align="center">
+	<tr>
+        <td> Họ và tên: </td>
+        <td id="ten"> <input type="text" size="30" name="txtTen" placeholder="Hãy Nhập Họ Tên Của Bạn"/></td>
+	</tr>
+    <tr>
+        <td>Tên đăng nhập: </td>
+        <td id="tendn"> <input type="text" size="30" name="txtTendn" placeholder="Tên đăng nhập"/></td>
+	</tr>
+    <tr>
+        <td>Mật khẩu: </td>
+        <td id="ps"> <input type="password" size="30" name="mkhau" placeholder="Nhập mật khẩu" /></td>
+    </tr>
+    <tr>
+        <td>Giới tính: </td>
+        <td id="gt"><input type="radio" name="giơitinh" value="0" />Nam &nbsp;&nbsp;
+            <input type="radio" name="giơitinh" value="1" />Nữ
+            </td>
+	</tr>
+	<tr>
+        <td>Quê quán: &nbsp; &nbsp; &nbsp; </td>
+        <td id="qq"><select name="quequan">
+            <option value="Hà Nội" >Hà Nội</option>
+            <option value="TP.Hồ Chí Minh">Hồ Chí Minh</option>
+            <option value="Cần Thơ">Cần Thơ</option>
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="Trà Vinh" selected="selected">Trà Vinh</option>
+        </select>
+       </td>
+	<tr><td colspan="2">
+        <p align="center"><input type="submit" name="dongy" value="Đồng ý"/></p></td>
+	</tr>
+    </form>
+    </td></tr></table>
+
+    <p align="center"><b><font face="Time New Roman" size="5" color="black">Thông tin bạn vừa nhập</font></b></p>
+
+    <table border="1" align="center" id="bangthongtin">
+        <tr>
+            <th width="150">Họ tên</th>
+            <th width="200">Tên đăng nhập</th>
+            <th width="100">Mật khẩu</th>
+            <th width="150">Quê quán</th>
+        </tr>
+    </table>
+
+    <script language="javascript">
+         users = []; 
+        function kiemTraTen() {
+             ten = document.frmBT8.txtTen.value;
+            if (ten === "") {
+                alert("Bạn chưa nhập họ tên!");
+				document.frmBT8.txtTen.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function kiemTraTenDangNhap() {
+             tenDangNhap = document.frmBT8.txtTendn.value;
+            if (tenDangNhap === "") {
+                alert("Bạn chưa nhập tên đăng nhập!");
+				document.frmBT8.txtTendn.focus();
+                return false;
+            } else if (tenDangNhap.length < 8) {
+                alert("Tên đăng nhập phải có ít nhất 8 ký tự!");
+				document.frmBT8.txtTendn.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function kiemTraMatKhau() {
+             matKhau = document.frmBT8.mkhau.value;
+            if (matKhau === "") {
+                alert("Bạn chưa nhập mật khẩu!");
+				document.frmBT8.mkhau.focus();
+                return false;
+            } else if (matKhau.length < 8) {
+                alert("Mật khẩu phải có ít nhất 8 ký tự!");
+				document.frmBT8.mkhau.focus();
+                return false;
+            } else if(matKhau.length > 12){
+				alert("Mật khẩu phải ít hơn 12 ký tự!");
+				document.frmBT8.mkhau.focus();
+                return false;
+			}
+            return true;
+        }
+
+        function nhaplieu() {
+            event.preventDefault(); 
+            if (!kiemTraTen() || !kiemTraTenDangNhap() || !kiemTraMatKhau()) {
+                return false;
+            }           
+            alert("Chào bạn " + hoten + ". Bạn đã đăng ký thành công!");
+			document.frmBT8.reset();
+            return true;
+        }
+
+        function hienthiThongTin() {
+			var hoTen = document.getElementById("ten").value;
+			var hoTendn = document.getElementById("tendn").value;
+			var matKhau = document.getElementById("mkhau").value;
+			var queQuan = document.getElementById("qq").value;
+			
+             document.getElementById("ten").innerHTML = hoTen;
+			 document.getElementById("tendn").innerHTML = hoTendn;
+			 document.getElementById("mkhau").innerHTML = matKhau;
+			 document.getElementById("qq").innerHTML = queQuan;
+        }
+    </script>
+</body>
+</html>
