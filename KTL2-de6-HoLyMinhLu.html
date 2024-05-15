@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>110122231 - Hồ Lý Minh Lữ</title>
+</head>
+
+<body>
+<form name="frmTTDien231" action="" method="post" onsubmit="return tinhtienDien_110122231();">
+<table border="1" width="50%" align="center" bgcolor="#CCCCCC" cellpadding="5" cellspacing="0" bordercolor="#0000FF">
+<caption><h1 style="color:#0000FF;"> Quản lý sử dụng điện </h1></caption>
+<tr><td >
+Họ tên khách hàng:</td>
+<td width="69%" > <input type="text" name="txtHTen231" size="20" /></td>
+</tr><tr><td>
+Địa chỉ khách hàng: </td><td><input type="text" name="txtDChi231" size="20"  /></td></tr>
+<tr><td colspan="2">
+<fieldset>
+	<legend>Nhập số KW</legend>
+	<table>
+		<tr>
+			<td>Số KW tháng trước: </td>
+            <td><input type="text" name="txtKWTruoc231" /></td>
+		</tr>
+		<tr>
+			<td>Số KW tháng sau:</td>
+            <td><input type="text" name="txtKWSau231" /></td>
+		</tr>
+		<tr>
+			<td>Đơn giá: </td>
+            <td><select name="slDGia231">
+            		<option value="1000">1000 đ</option>
+                    <option value="1500">1500 đ</option>
+                    <option value="2000">2000 đ</option>
+                    <option value="2500">2500 đ</option>
+                    <option value="3000">3000 đ</option>
+            	</select>
+            </td>
+		</tr>
+	</table>
+</fieldset> 
+</td></tr>
+<tr>
+<td align="right"><input type="button" name="btnLuu231" value="Lưu" onclick="tinhtienDien_110122231()"/></td>
+<td align="left"><input type="reset" name="rsNLai231" value="Nhập lại" /></td>
+</tr>
+</table></form>
+<br />
+<table border="1" width="80%" align="center"  cellpadding="5" cellspacing="0" bordercolor="#0000FF">
+<tr bgcolor="#CCCCCC" height="50" align="center">
+<td width="76" rowspan="2">Họ và tên</td>
+<td width="111" rowspan="2">Địa chỉ</td>
+<td colspan="2">Số KW</td>
+<td width="74" rowspan="2">Số KW tiêu thụ</td>
+<td width="74" rowspan="2">Thành tiền</td>
+</tr>
+<tr bgcolor="#CCCCCC" align="center">
+<td  valign="middle" width="80">Số KW tháng trước</td>
+<td  valign="middle" width="80">Số KW tháng sau</td>
+</tr>
+<tr>
+	<td id="ht">&nbsp;</td>
+    <td id="dc">&nbsp;</td>
+    <td id="kwt">&nbsp;</td>
+    <td id="kws">&nbsp;</td>
+    <td id="kwtt">&nbsp;</td>
+    <td id="tt">&nbsp;</td>
+</tr>
+</table>
+<script language="javascript">
+function tinhtienDien_110122231() {
+             ten = document.frmTTDien231.txtHTen231.value;
+			 KWthangtruoc = document.frmTTDien231.txtKWTruoc231.value;
+			 KWthangsau = document.frmTTDien231.txtKWSau231.value;
+            if (ten === "") {
+                alert("Tên rỗng ! Bạn chưa nhập họ tên!");
+                document.frmTTDien231.txtHTen231.focus();
+                return false;
+        }else if(KWthangtruoc < 0){
+			    alert("Không hợp lệ ! Số KW phải là số dương");
+				document.frmTTDien231.txtKWTruoc231.value = "";
+                document.frmTTDien231.txtKWTruoc231.focus();
+                return false;
+		}else if(KWthangsau < 0){
+			    alert("Không hợp lệ ! Số KW phải là số dương");
+				document.frmTTDien231.txtKWSau231.value = "";
+                document.frmTTDien231.txtKWSau231.focus();
+                return false;
+		}else if(true){
+			 hoTen = document.frmTTDien231.txtHTen231.value;
+             diaChi = document.frmTTDien231.txtDChi231.value;
+			 kwtruoc =  document.frmTTDien231.txtKWTruoc231.value;
+ 			 kwsau =  document.frmTTDien231.txtKWSau231.value;
+
+            document.getElementById("ht").innerHTML = hoTen;
+            document.getElementById("dc").innerHTML = diaChi;
+			document.getElementById("kwt").innerHTML = kwtruoc;
+			document.getElementById("kws").innerHTML = kwsau;
+			
+			a=document.frmTTDien231.txtKWTruoc231.value;
+			b=document.frmTTDien231.txtKWSau231.value;
+			KWtieuthu = eval(b)-eval(a);
+			document.getElementById("kwtt").innerHTML = KWtieuthu;
+		
+			dongia = document.frmTTDien231.slDGia231.value;
+			if(KWtieuthu < 100){
+				thanhtien = KWtieuthu*dongia;
+				document.getElementById("tt").innerHTML = thanhtien;
+			}else{
+				thanhtien = 100*dongia + ( KWtieuthu-100 )*dongia*1.05;
+				document.getElementById("tt").innerHTML = thanhtien;
+				
+			}
+		}
+		return true;
+            
+}
+</script>
+</body>
+</html>
